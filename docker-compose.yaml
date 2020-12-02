@@ -2,7 +2,7 @@ version: "3"
 
 services:
   boot:
-    image: spring-boot-websocket-chat-demo:1.0.0
+    image: docker.io/kuzoncby/spring-boot-websocket-chat-demo:1.0.0
     build:
       context: .
     hostname: boot

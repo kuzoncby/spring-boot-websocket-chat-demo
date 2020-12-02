@@ -16,7 +16,7 @@ spec:
     spec: # Spec for the containers that will be run in the Pods
       containers:
         - name: chat-server
-          image: spring-boot-websocket-chat-demo:1.0.0
+          image: kuzoncby/spring-boot-websocket-chat-demo:1.0.0
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
