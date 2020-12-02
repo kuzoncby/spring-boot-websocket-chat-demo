@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  boot:
+    image: spring-boot-websocket-chat-demo:1.0.0
+    build:
+      context: .
+    hostname: boot
+    container_name: boot
+    ports:
+      - 5273:5273
+    environment:
+      - SPRING_PROFILES_ACTIVE=local

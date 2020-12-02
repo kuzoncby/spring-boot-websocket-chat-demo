@@ -1,21 +1,12 @@
-# Start with a base image containing Java runtime
-FROM openjdk:8-jdk-alpine
+# Java 运行时镜像
+FROM openjdk:11-jdk
 
-# Add Maintainer Info
-MAINTAINER Rajeev Kumar Singh <callicoder@gmail.com>
+# 添加 Java 文件
+ADD target/app.jar .
 
-# Add a volume pointing to /tmp
-VOLUME /tmp
+# 允许 5273 端口外部访问
+EXPOSE 5273
 
-# Make port 8080 available to the world outside this container
-EXPOSE 8080
-
-# The application's jar file
-ARG JAR_FILE=target/websocket-demo-0.0.1-SNAPSHOT.jar
-
-# Add the application's jar to the container
-ADD ${JAR_FILE} websocket-demo.jar
-
-# Run the jar file 
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/websocket-demo.jar"]
+# 运行 Java
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
 

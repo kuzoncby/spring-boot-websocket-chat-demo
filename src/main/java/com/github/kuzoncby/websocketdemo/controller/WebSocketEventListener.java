@@ -1,6 +1,6 @@
-package com.example.websocketdemo.controller;
+package com.github.kuzoncby.websocketdemo.controller;
 
-import com.example.websocketdemo.model.ChatMessage;
+import com.github.kuzoncby.websocketdemo.model.ChatMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import org.springframework.web.socket.messaging.SessionConnectedEvent;
 import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 
 /**
- * Created by rajeevkumarsingh on 25/07/17.
+ * Updated by kuzoncby on 2020-12-02.
  */
 @Component
 public class WebSocketEventListener {
@@ -32,7 +32,7 @@ public class WebSocketEventListener {
         StompHeaderAccessor headerAccessor = StompHeaderAccessor.wrap(event.getMessage());
 
         String username = (String) headerAccessor.getSessionAttributes().get("username");
-        if(username != null) {
+        if (username != null) {
             logger.info("User Disconnected : " + username);
 
             ChatMessage chatMessage = new ChatMessage();
