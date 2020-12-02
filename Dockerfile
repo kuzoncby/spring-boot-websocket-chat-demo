@@ -5,7 +5,9 @@ FROM openjdk:11-jdk
 VOLUME /tmp
 
 # 添加 Java 文件
-ADD target/app.jar /opt
+ADD * /opt/
+# COPY target/app.jar /opt
+RUN ls -alh /opt/
 
 # 允许 5273 端口外部访问
 EXPOSE 5273
