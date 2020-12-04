@@ -11,3 +11,6 @@ services:
       - 5273:5273
     environment:
       - SPRING_PROFILES_ACTIVE=local
+      - JAVA_TOOL_OPTIONS=-Djava.security.egd=file:/dev/./urandom -javaagent=/opt/apm.jar
+      - SW_AGENT_NAME=spring-boot-websocket-chat-demo
+      - SW_AGENT_COLLECTOR_BACKEND_SERVICES=oap:11800
