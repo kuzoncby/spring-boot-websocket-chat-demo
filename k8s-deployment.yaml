@@ -60,7 +60,7 @@ metadata:
   name: chat-server
 data:
   SPRING_PROFILES_ACTIVE: 'local'
-  JAVA_TOOL_OPTIONS: '-javaagent:/opt/apm.jar -Xms100m -Xmx100m  -Duser.timezone=Asia/Shanghai -Dfile.encoding=UTF-8 -Djava.security.egd=file:/dev/./urandom'
+  JAVA_TOOL_OPTIONS: '-javaagent:/opt/skywalking/agent/skywalking-agent.jar -Xms100m -Xmx100m  -Duser.timezone=Asia/Shanghai -Dfile.encoding=UTF-8 -Djava.security.egd=file:/dev/./urandom'
   SW_AGENT_NAME: 'spring-boot-websocket-chat-demo'
   SW_AGENT_COLLECTOR_BACKEND_SERVICES: 'oap:11800'
 ---
