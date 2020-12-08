@@ -5,9 +5,8 @@ WORKDIR /tmp/
 ADD . /tmp/
 
 RUN mvn clean package -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn \
-    && mvn -B install dependency:copy-dependencies -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn \
-    && cp /tmp/target/dependency/apm-agent-core-8.3.0.jar /opt/apm.jar \
-    && cp /tmp/target/app.jar /opt/app.jar \
+    && curl -s https://mirrors.tuna.tsinghua.edu.cn/apache/skywalking/8.3.0/apache-skywalking-apm-8.3.0.tar.gz | tar xz -C /tmp/ \
+    && cp /tmp/apache-skywalking-apm-bin/agent/skywalking-agent.jar /opt/app.jar \
     && rm -rf /tmp/* "${MAVEN_HOME}" "${MAVEN_CONFIG}"
 
 USER 1001
